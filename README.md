@@ -15,15 +15,15 @@
 
 - Q1:
     - Without Mutex:
-        - Compile:
-        - Run: 
+        - Compile: g++ -std=c++17 -pthread -O2 Q1_Pthread_NoMutex.cpp -o no_mutex
+        - Run: ./no_mutex
     - With Mutex: 
-        - Compile:
-        - Run:
+        - Compile: g++ -std=c++17 -pthread -O2 Q1_Pthread_Mutex.cpp -o with_mutex
+        - Run: ./with_mutex
     - Screenshots:
     - Answers to Questions:
-        - 1)
-        - 2)
-        - 3)
+        - 1) The progarm in section A does not print the value of 1,000,000 because 
+        - 2) Mutex plays a significant role
+        - 3) counter++ is not an atomic operation because
 - Q2:
 - Q3:

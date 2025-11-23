@@ -24,17 +24,14 @@ void * worker(void* arg) {
 }
 
 int main() {
-    pthread_t tids[THREADS];
+    pthread_t threads[THREADS];
 
     for (int i = 0; i < THREADS; ++i) {
-        if(pthread_create(&tids[i], nullptr, worker, nullptr) != 0) {
-            std::cerr << "Error creating thread " << i << std::endl;
-            return 1;
-        }
+        pthread_create(&threads[i], nullptr, worker, nullptr);
     }
     
     for (int i = 0; i < THREADS; ++i) {
-        pthread_join(tids[i], nullptr);
+        pthread_join(threads[i], nullptr);
     }
 
     std::cout << "Final counter(With Mutex): " << counter << " (expected " << THREADS * ITERS << ")\n";
