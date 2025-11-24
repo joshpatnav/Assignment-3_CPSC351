@@ -21,3 +21,5 @@
         - Compile: g++ -std=c++17 -pthread -O2 Q1_Pthread_Mutex.cpp -o with_mutex
         - Run: ./with_mutex
 - Q2:
+    - Compile: g++ Q2_ThreadSync.cpp -pthread -o Q2_ThreadSync
+    - Run: ./Q2_ThreadSync
