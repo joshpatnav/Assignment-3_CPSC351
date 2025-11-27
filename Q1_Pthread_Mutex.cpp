@@ -5,6 +5,7 @@ Run: ./with_mutex
 */
 #include <iostream>
 #include <pthread.h>
+#include <sched.h>
 
 const int THREADS = 10;
 const int ITERS = 100000;
@@ -17,7 +18,10 @@ void * worker(void* arg) {
     for (int i = 0; i < ITERS; i++) 
     {
         pthread_mutex_lock(&lock);
-        counter++;
+        //Conceptually the same as counter++
+        int tmp = counter; // Read 
+        sched_yield();       
+        counter = tmp + 1;  // Add/Write
         pthread_mutex_unlock(&lock);
     }
     return NULL;
